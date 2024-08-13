@@ -1,0 +1,10 @@
+services:
+  db:
+    image: mysql:latest
+    container_name: progi-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: progi2024
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./progidb:/var/lib/mysql
