@@ -1,0 +1,11 @@
+/Users/mischatobias/Documents/Repos/Progi-Code-Challenge/BidCalculation/bin/Release/net8.0/publish/BidCalculation
+/Users/mischatobias/Documents/Repos/Progi-Code-Challenge/BidCalculation/bin/Release/net8.0/publish/appsettings.Development.json
+/Users/mischatobias/Documents/Repos/Progi-Code-Challenge/BidCalculation/bin/Release/net8.0/publish/appsettings.json
+/Users/mischatobias/Documents/Repos/Progi-Code-Challenge/BidCalculation/bin/Release/net8.0/publish/BidCalculation.dll
+/Users/mischatobias/Documents/Repos/Progi-Code-Challenge/BidCalculation/bin/Release/net8.0/publish/BidCalculation.deps.json
+/Users/mischatobias/Documents/Repos/Progi-Code-Challenge/BidCalculation/bin/Release/net8.0/publish/BidCalculation.runtimeconfig.json
+/Users/mischatobias/Documents/Repos/Progi-Code-Challenge/BidCalculation/bin/Release/net8.0/publish/BidCalculation.pdb
+/Users/mischatobias/Documents/Repos/Progi-Code-Challenge/BidCalculation/bin/Release/net8.0/publish/Microsoft.OpenApi.dll
+/Users/mischatobias/Documents/Repos/Progi-Code-Challenge/BidCalculation/bin/Release/net8.0/publish/Swashbuckle.AspNetCore.Swagger.dll
+/Users/mischatobias/Documents/Repos/Progi-Code-Challenge/BidCalculation/bin/Release/net8.0/publish/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/mischatobias/Documents/Repos/Progi-Code-Challenge/BidCalculation/bin/Release/net8.0/publish/Swashbuckle.AspNetCore.SwaggerUI.dll
