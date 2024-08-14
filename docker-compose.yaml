@@ -8,3 +8,8 @@ services:
       - "3306:3306"
     volumes:
       - ./progidb:/var/lib/mysql
+  api:
+    image: bid-calculation
+    container_name: progi-api
+    ports:
+      - "5001:8080"

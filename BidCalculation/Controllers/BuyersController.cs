@@ -1,9 +1,8 @@
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BidCalculation.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class BuyersController : ControllerBase
     {
@@ -11,7 +10,7 @@ namespace BidCalculation.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            return ["value1", "value2"];
         }
 
         // GET api/<BuyersController>/5
