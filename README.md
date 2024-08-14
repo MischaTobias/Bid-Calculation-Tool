@@ -6,14 +6,17 @@
 
 ## Table of Contents
 
-- [Definition](#definition)
+- [Design](#design)
 - [Installation](#installation)
 
-## Definition
+## Design
 
 The following is an image of the relational diagram for the current database design.
 
 ![relational diagram](/Progi%20Relational.png)
+
+- This is a containerized app built with dotnet and mysql. 
+- The images on which it is based are hosted on docker hub.
 
 ## Installation
 

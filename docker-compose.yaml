@@ -1,6 +1,6 @@
 services:
   db:
-    image: mysql:latest
+    image: mischatob/progi-mysql
     container_name: progi-mysql
     environment:
       MYSQL_ROOT_PASSWORD: progi2024
@@ -9,7 +9,7 @@ services:
     volumes:
       - ./progidb:/var/lib/mysql
   api:
-    image: bid-calculation
+    image: mischatob/bid-calculation
     container_name: progi-api
     ports:
       - "5001:8080"

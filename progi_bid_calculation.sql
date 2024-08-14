@@ -19,114 +19,86 @@ USE `progi_bid_calculation`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `AssociationFeeRange`
+-- Table structure for table `AdditionalCost`
 --
 
-
-DROP TABLE IF EXISTS `AssociationFeeRange`;
+DROP TABLE IF EXISTS `AdditionalCost`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `AssociationFeeRange` (
+CREATE TABLE `AdditionalCost` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `lower_limit` decimal(10,2) NOT NULL,
-  `upper_limit` decimal(10,2) DEFAULT NULL,
+  `criteria` varchar(255) NOT NULL,
+  `lowerLimit` int NOT NULL,
+  `upperLimit` int NOT NULL,
   `value` decimal(10,2) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `AssociationFeeRange`
+-- Dumping data for table `AdditionalCost`
 --
 
-LOCK TABLES `AssociationFeeRange` WRITE;
-/*!40000 ALTER TABLE `AssociationFeeRange` DISABLE KEYS */;
-INSERT INTO `AssociationFeeRange` VALUES (1,'Range 1',1.00,500.00,5.00),(2,'Range 2',501.00,1000.00,10.00),(3,'Range 3',1001.00,3000.00,15.00),(4,'Range 4',3001.00,NULL,20.00);
-/*!40000 ALTER TABLE `AssociationFeeRange` ENABLE KEYS */;
+LOCK TABLES `AdditionalCost` WRITE;
+/*!40000 ALTER TABLE `AdditionalCost` DISABLE KEYS */;
+INSERT INTO `AdditionalCost` VALUES (1,'Association',1,500,5.00),(2,'Association',501,1000,10.00),(3,'Association',1001,3000,15.00),(4,'Association',501,0,20.00);
+/*!40000 ALTER TABLE `AdditionalCost` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `BuyerType`
+-- Table structure for table `Fee`
 --
 
-DROP TABLE IF EXISTS `BuyerType`;
+DROP TABLE IF EXISTS `Fee`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `BuyerType` (
+CREATE TABLE `Fee` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `feeTypeId` int NOT NULL,
+  `vehicleTypeId` int DEFAULT NULL,
+  `value` decimal(10,2) NOT NULL,
+  `minimum` decimal(10,2) NOT NULL,
+  `maximum` decimal(10,2) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `feeTypeId` (`feeTypeId`),
+  KEY `vehicleTypeId` (`vehicleTypeId`),
+  CONSTRAINT `fee_ibfk_1` FOREIGN KEY (`feeTypeId`) REFERENCES `FeeType` (`id`),
+  CONSTRAINT `fee_ibfk_2` FOREIGN KEY (`vehicleTypeId`) REFERENCES `VehicleType` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Fee`
+--
+
+LOCK TABLES `Fee` WRITE;
+/*!40000 ALTER TABLE `Fee` DISABLE KEYS */;
+INSERT INTO `Fee` VALUES (1,1,1,0.10,10.00,50.00),(2,1,2,0.10,25.00,200.00),(3,2,1,0.02,0.00,0.00),(4,2,2,0.04,0.00,0.00),(5,3,NULL,100.00,0.00,0.00);
+/*!40000 ALTER TABLE `Fee` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `FeeType`
+--
+
+DROP TABLE IF EXISTS `FeeType`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `FeeType` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `BuyerType`
+-- Dumping data for table `FeeType`
 --
 
-LOCK TABLES `BuyerType` WRITE;
-/*!40000 ALTER TABLE `BuyerType` DISABLE KEYS */;
-INSERT INTO `BuyerType` VALUES (1,'Basic Buyer'),(2,'Seller');
-/*!40000 ALTER TABLE `BuyerType` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `Fees`
---
-
-DROP TABLE IF EXISTS `Fees`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Fees` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `vehicle_type_id` int DEFAULT NULL,
-  `buyer_type_id` int DEFAULT NULL,
-  `value` decimal(10,2) NOT NULL,
-  `minimum` decimal(10,2) DEFAULT NULL,
-  `maximum` decimal(10,2) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `vehicle_type_id` (`vehicle_type_id`,`buyer_type_id`),
-  KEY `buyer_type_id` (`buyer_type_id`),
-  CONSTRAINT `fees_ibfk_1` FOREIGN KEY (`vehicle_type_id`) REFERENCES `VehicleType` (`id`),
-  CONSTRAINT `fees_ibfk_2` FOREIGN KEY (`buyer_type_id`) REFERENCES `BuyerType` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `Fees`
---
-
-LOCK TABLES `Fees` WRITE;
-/*!40000 ALTER TABLE `Fees` DISABLE KEYS */;
-INSERT INTO `Fees` VALUES (1,1,1,10.00,10.00,50.00),(2,1,2,2.00,NULL,NULL),(3,2,1,10.00,25.00,200.00),(4,2,2,4.00,NULL,NULL);
-/*!40000 ALTER TABLE `Fees` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `SpecialFees`
---
-
-DROP TABLE IF EXISTS `SpecialFees`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `SpecialFees` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `value` decimal(10,2) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `SpecialFees`
---
-
-LOCK TABLES `SpecialFees` WRITE;
-/*!40000 ALTER TABLE `SpecialFees` DISABLE KEYS */;
-INSERT INTO `SpecialFees` VALUES (1,'Fixed Storage Fee',100.00);
-/*!40000 ALTER TABLE `SpecialFees` ENABLE KEYS */;
+LOCK TABLES `FeeType` WRITE;
+/*!40000 ALTER TABLE `FeeType` DISABLE KEYS */;
+INSERT INTO `FeeType` VALUES (1,'Basic Buyer'),(2,'Seller Special'),(3,'Fixed Storage');
+/*!40000 ALTER TABLE `FeeType` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -139,8 +111,7 @@ DROP TABLE IF EXISTS `VehicleType`;
 CREATE TABLE `VehicleType` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `name` (`name`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -167,4 +138,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-08-12 18:52:26
+-- Dump completed on 2024-08-14 13:04:41
