@@ -32,14 +32,14 @@ At the moment, the installation steps for this project are the following:
 
 ## ProdModifications
 Things to consider:
-    - Add CRUD operations for system to work in a better and more flexible manner.
-    - Add security layer such as jwt and/or cookies for session management.
-    - Add follow up module, including actions such as attaching detail to an email for the customer.
-    - Manage a better branching strategy.
-    - Add better testing files, such as postman collections.
-    - Better module management on the frontend.
-    - Better UX/UI design for engagement. 
-    - Improve service segregation in frontend.
-    - Better CORS management.
-    - Better module management.
+- Add CRUD operations for system to work in a better and more flexible manner.
+- Add security layer such as jwt and/or cookies for session management.
+- Add follow up module, including actions such as attaching detail to an email for the customer.
+- Manage a better branching strategy.
+- Add better testing files, such as postman collections.
+- Better module management on the frontend.
+- Better UX/UI design for engagement. 
+- Improve service segregation in frontend.
+- Better CORS management.
+- Better module management.
 
