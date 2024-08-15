@@ -23,3 +23,12 @@ services:
       ConnectionStrings__DefaultConnection: "Server=db;Port=3306;Database=progi_bid_calculation;User=root;Password=progi2024;"
     ports:
       - "5001:8080"
+
+  front:
+    image: mischatob/bid-calculation-front
+    container_name: bid-calculation-front
+    depends_on:
+      - db
+      - api
+    ports:
+      - "80:80"

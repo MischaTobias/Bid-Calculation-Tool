@@ -1,6 +1,8 @@
+using BidCalculation.Entities;
+
 namespace BidCalculation.Business.Interfaces;
 
 public interface IBidCalculationService
 {
-    Task<double> GetTotalBasedOnVehicleType(double vehiclePrice, int vehicleTypeId);
+    Task<Bid> GetTotalBasedOnVehicleType(double vehiclePrice, int vehicleTypeId);
 }

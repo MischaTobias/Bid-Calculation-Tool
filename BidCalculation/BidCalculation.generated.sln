@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BidCalculation", "BidCalculation\BidCalculation.csproj", "{A67B3608-E3F7-4202-AE4C-2767AB7D969A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BidCalculation", "BidCalculation\BidCalculation.csproj", "{A487993F-FB42-4CBA-87C1-CBB852AEB9CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A67B3608-E3F7-4202-AE4C-2767AB7D969A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A67B3608-E3F7-4202-AE4C-2767AB7D969A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A67B3608-E3F7-4202-AE4C-2767AB7D969A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A67B3608-E3F7-4202-AE4C-2767AB7D969A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A487993F-FB42-4CBA-87C1-CBB852AEB9CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A487993F-FB42-4CBA-87C1-CBB852AEB9CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A487993F-FB42-4CBA-87C1-CBB852AEB9CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A487993F-FB42-4CBA-87C1-CBB852AEB9CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

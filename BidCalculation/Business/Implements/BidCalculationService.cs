@@ -1,4 +1,5 @@
 using BidCalculation.Business.Interfaces;
+using BidCalculation.Entities;
 
 namespace BidCalculation.Business.Implements;
 
@@ -8,7 +9,7 @@ public class BidCalculationService(IFeeTypeService feeTypeService, IFeeService f
     private readonly IFeeService _feeService = feeService;
     private readonly IAdditionalCostService _additionalCostService = additionalCostService;
 
-    public async Task<double> GetTotalBasedOnVehicleType(double vehiclePrice, int vehicleTypeId)
+    public async Task<Bid> GetTotalBasedOnVehicleType(double vehiclePrice, int vehicleTypeId)
     {
         // Vehicle Price + Basic Buyer Fee + Special Fee + Association Fee + Storage Fee
         var total = vehiclePrice;
@@ -41,6 +42,14 @@ public class BidCalculationService(IFeeTypeService feeTypeService, IFeeService f
 
         total += fixedStorageFeeValue;
 
-        return total;
+        return new Bid() {
+            Total = total,
+            Fees = [ 
+                new FeeDetail { Name = "Basic Buyer Fee", Value = basicBuyerFeeValue },
+                new FeeDetail { Name = "Seller Special Fee", Value = sellerSpecialFeeValue },
+                new FeeDetail { Name = "Added cost for association", Value = associationCostValue },
+                new FeeDetail { Name = "Fixed storage Fee", Value = fixedStorageFeeValue },
+            ]
+        };
     }
 }

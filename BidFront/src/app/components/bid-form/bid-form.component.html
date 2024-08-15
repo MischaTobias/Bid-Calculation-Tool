@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-3">
+    <label for="price">Vehicle Price: </label>
+    <input type="number" [(ngModel)]="this.vehiclePrice" (change)="this.calculatePrice()">
+  </div>
+  <div class="col-3">
+    <label for="dropdown">Choose a vehicle type:</label>
+    <select id="dropdown" [(ngModel)]="this.vehicleType" (change)="this.calculatePrice()">
+      <option *ngFor="let option of this.vehicleTypes" [value]="option.id">{{ option.name }}</option>
+    </select>
+  </div>
+  <div class="col-3">
+    <ul *ngIf="this.bid">
+      <li>Base price - ${{this.vehiclePrice}}</li>
+      <li *ngFor="let fee of this.bid.fees">{{fee.name}} - ${{fee.value}}</li>
+    </ul>
+  </div>
+  <div class="col-3" *ngIf="this.bid">
+    <b>Total: ${{this.bid.total}}</b>
+  </div>
+</div>
