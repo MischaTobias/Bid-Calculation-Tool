@@ -44,4 +44,5 @@ Things to consider:
 - Better CORS management.
 - Better module management.
 - Add a pipeline procedure such as github actions to execute testing for CI/CD.
+- Add better and more tests for both backend and frontend, such as integration testing, or mock testing.
 
