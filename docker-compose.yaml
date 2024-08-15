@@ -1,15 +1,25 @@
 services:
   db:
-    image: mischatob/progi-mysql
-    container_name: progi-mysql
+    image: mischatob/bid-calculation-db
+    container_name: bid-calculation-db
     environment:
       MYSQL_ROOT_PASSWORD: progi2024
     ports:
       - "3306:3306"
     volumes:
       - ./progidb:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
   api:
-    image: mischatob/bid-calculation
-    container_name: progi-api
+    image: mischatob/bid-calculation-api
+    container_name: bid-calculation-api
+    depends_on:
+      - db
+    environment:
+      ConnectionStrings__DefaultConnection: "Server=db;Port=3306;Database=progi_bid_calculation;User=root;Password=progi2024;"
     ports:
       - "5001:8080"

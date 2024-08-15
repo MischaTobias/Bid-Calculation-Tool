@@ -1,7 +1,7 @@
-﻿namespace BidCalculation;
+﻿namespace BidCalculation.Entities;
 
 public class VehicleType
 {
     public int Id { get; set; }
-    public int Name { get; set; }
+    public string? Name { get; set; }
 }

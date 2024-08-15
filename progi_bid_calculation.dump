@@ -41,7 +41,7 @@ CREATE TABLE `AdditionalCost` (
 
 LOCK TABLES `AdditionalCost` WRITE;
 /*!40000 ALTER TABLE `AdditionalCost` DISABLE KEYS */;
-INSERT INTO `AdditionalCost` VALUES (1,'Association',1,500,5.00),(2,'Association',501,1000,10.00),(3,'Association',1001,3000,15.00),(4,'Association',501,0,20.00);
+INSERT INTO `AdditionalCost` VALUES (1,'Association',1,500,5.00),(2,'Association',501,1000,10.00),(3,'Association',1001,3000,15.00),(4,'Association',3001,0,20.00);
 /*!40000 ALTER TABLE `AdditionalCost` ENABLE KEYS */;
 UNLOCK TABLES;
 
