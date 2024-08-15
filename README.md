@@ -8,7 +8,8 @@
 
 - [Design](#design)
 - [Installation](#installation)
-- [What to change to be prod ready?](#ProdModifications)
+- [Tests](#tests)
+- [What to change to be prod ready?](#prodModifications)
 
 ## Design
 
