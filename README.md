@@ -29,6 +29,7 @@ At the moment, the installation steps for this project are the following:
 
 ## Tests
 - Backend has tests which can be run by going to BidBack/BidCalculation/ and running ```dotnet test BidCalculation.Tests.csproj```
+- Frontend has tests which can be run by going to BidFront/ and running ```ng test --karma-config=karma.conf.js```
 
 ## ProdModifications
 Things to consider:

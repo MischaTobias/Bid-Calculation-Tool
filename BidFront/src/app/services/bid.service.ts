@@ -15,7 +15,7 @@ const headers = new HttpHeaders({
 export class BidService {
   url: string = environment.url;
 
-  constructor(readonly http: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
   getVehicleTypes(): Observable<VehicleType[]> {
     const url = `${this.url}/vehicleType`;
