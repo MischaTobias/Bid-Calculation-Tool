@@ -1,21 +1,37 @@
-<div class="row">
-  <div class="col-3">
-    <label for="price">Vehicle Price: </label>
-    <input type="number" [(ngModel)]="this.vehiclePrice" (change)="this.calculatePrice()">
-  </div>
-  <div class="col-3">
-    <label for="dropdown">Choose a vehicle type:</label>
-    <select id="dropdown" [(ngModel)]="this.vehicleType" (change)="this.calculatePrice()">
-      <option *ngFor="let option of this.vehicleTypes" [value]="option.id">{{ option.name }}</option>
-    </select>
-  </div>
-  <div class="col-3">
-    <ul *ngIf="this.bid">
-      <li>Base price - ${{this.vehiclePrice}}</li>
-      <li *ngFor="let fee of this.bid.fees">{{fee.name}} - ${{fee.value}}</li>
-    </ul>
-  </div>
-  <div class="col-3" *ngIf="this.bid">
-    <b>Total: ${{this.bid.total}}</b>
+<div class="card p-3">
+  <div class="row">
+    <div class="col-md-3 mb-3">
+      <div class="form-group">
+        <label for="price">Vehicle Price:</label>
+        <input type="number" class="form-control" [(ngModel)]="this.vehiclePrice" (change)="this.calculatePrice()">
+      </div>
+    </div>
+    <div class="col-md-3 mb-3">
+      <div class="form-group">
+        <label for="dropdown">Choose a vehicle type:</label>
+        <select id="dropdown" class="form-control" [(ngModel)]="this.vehicleType" (change)="this.calculatePrice()">
+          <option *ngFor="let option of this.vehicleTypes" [value]="option.id">{{ option.name }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-6 mb-3 d-grid gap-3" *ngIf="this.bid">
+      <div class="list-container">
+        <ul class="list-group">
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Base price
+            <span>${{this.vehiclePrice | number:'1.2-2'}}</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let fee of this.bid.fees">
+            {{fee.name}}
+            <span>${{fee.value | number:'1.2-2'}}</span>
+          </li>
+        </ul>
+      </div>
+      <div class="total-box d-flex justify-content-center align-items-center">
+        <div class="alert alert-info total-text">
+          <b>Total: ${{this.bid.total | number:'1.2-2'}}</b>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

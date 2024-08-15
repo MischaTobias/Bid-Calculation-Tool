@@ -1,6 +1,6 @@
 import { Fee } from "./fee";
 
 export interface Bid {
-  total: Number;
+  total: number;
   fees: Fee[];
 }

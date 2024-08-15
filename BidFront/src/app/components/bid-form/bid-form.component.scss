@@ -1,0 +1,37 @@
+/* Flexbox for consistent width */
+.list-container, .total-box {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensure the total box has the same width as the list */
+.list-container {
+  width: 100%;
+}
+
+.total-box {
+  width: 100%;
+  max-width: 100%; /* Ensures it can grow with the list */
+  /* Centering the content vertically */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Spacing between the list and total box */
+.d-grid {
+  gap: 1rem; /* Adjust this to control the space between list and total */
+}
+
+/* Make the total font larger and center it */
+.total-text {
+  font-size: 1.5rem; /* Adjust the size as needed */
+  text-align: center;
+}
+
+/* Ensure the total box maintains a consistent width */
+.alert-info {
+  width: 100%;
+  max-width: 100%; /* Ensure it matches the width of list items */
+  min-height: calc(2 * 50px); /* Ensure it's tall enough to match two list items */
+}
