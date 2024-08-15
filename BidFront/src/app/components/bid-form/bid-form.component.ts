@@ -20,7 +20,6 @@ export class BidFormComponent implements OnInit {
     this.bidService.getVehicleTypes().subscribe(
       (data: VehicleType[]) => {
         this.vehicleTypes = data;
-        console.log(this.vehicleTypes);
       },
       (error) => {
         console.error('Error fetching policy:', error);
@@ -34,7 +33,6 @@ export class BidFormComponent implements OnInit {
     this.bidService.getBid(this.vehiclePrice, this.vehicleType).subscribe(
       (data: Bid) => {
         this.bid = data;
-        console.log(this.bid);
       },
       (error) => {
         console.error('Error fetching policy:', error);
