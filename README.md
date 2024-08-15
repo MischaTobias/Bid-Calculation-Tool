@@ -42,4 +42,5 @@ Things to consider:
 - Improve service segregation in frontend.
 - Better CORS management.
 - Better module management.
+- Add a pipeline procedure such as github actions to execute testing for CI/CD.
 
